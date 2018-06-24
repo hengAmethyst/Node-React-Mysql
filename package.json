@@ -1,0 +1,9 @@
+{
+  "name": "react",
+  "version": "v0.0.1",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "webpack": "^4.12.1"
+  }
+}
