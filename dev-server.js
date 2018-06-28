@@ -38,12 +38,12 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler, {
     log: () => {}
 })
 
+
 /**
  * 挂载静态资源
  */
 var staticPath = path.posix.join(path.resolve(__dirname))
-app.use(staticPath, express.static('./dist'))
-
+app.use(express.static('./static'))
 
 /** 
  * waitUntilValid是webpack-dev-middleware实例的方法，在编译成功之后调用 
