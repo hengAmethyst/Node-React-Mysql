@@ -5,8 +5,8 @@ var app = express()
 var opn = require('opn')
 var path = require('path')
 
-var port = 3001
-var page = '/index_1.html'
+var port = 3000
+var page = '/index.html'
 var uri = 'http://localhost:' + port + page
 
 /**
@@ -24,7 +24,6 @@ var compiler = webpack(webpackConfig)
  * 并且把最新的文件上传到静态服务器
  */
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
-    // publicPath: '/dist',
     quiet: true
 })
 
@@ -38,12 +37,11 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler, {
     log: () => {}
 })
 
+
 /**
  * 挂载静态资源
  */
-var staticPath = path.posix.join(path.resolve(__dirname))
-app.use(staticPath, express.static('./dist'))
-
+app.use('/static',express.static('./static'))
 
 /** 
  * waitUntilValid是webpack-dev-middleware实例的方法，在编译成功之后调用 
