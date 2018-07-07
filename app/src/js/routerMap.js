@@ -39,7 +39,7 @@ class RouteMap extends React.Component {
             <li><Link to="/detail">detail</Link></li>
           </ul>
           <Route exact path="/home"  Component={Home}/>
-          <Route  path="/list"   Component={List}/>
+          <Route exact path="/list"   Component={List}/>
           <Route  path="/detail" Component={Detail}/>
         </div>
 		 </Router>
