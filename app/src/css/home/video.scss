@@ -1,0 +1,38 @@
+.video-wrap{
+    height: 3.8rem;
+    overflow: auto;
+    .video-box{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 1.2rem;
+        margin-bottom: 0.1rem;
+        background: #fff;
+        .video-img{
+            width: 1.2rem;
+            height: 90%;
+            margin-left: 0.1rem;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .video-title{
+            width: 2.3rem;
+            height: 90%;
+            margin-left: 0.1rem;
+            .title{
+                margin-top: 0.05rem;
+                text-align: center;
+                font-size: 0.2rem;
+                color: red;
+            }
+            .content{
+                margin-top: 0.15rem;
+                line-height: 0.2rem;
+                font-size: 0.14rem;
+                color: #000;
+            }
+        }
+    }
+}

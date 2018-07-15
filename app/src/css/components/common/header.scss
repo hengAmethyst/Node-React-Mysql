@@ -1,0 +1,77 @@
+.box{
+    position: relative;
+    width: 100%;
+    height: 0.6rem;
+    background: #cecece;
+    .game-wrap{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        .game-box{
+            display: flex;
+            width: 1.65rem;
+            height: 100%;
+            margin: 0 0.03rem;
+            background: #fff;
+            .visiting-field{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 0.5rem;
+                height: 100%;
+                img{
+                    width: 0.2rem;
+                    height:0.2rem;
+                    margin-top: 0.05rem;
+                }
+                span:nth-child(2){
+                    margin-top: 0.05rem;
+                    color: #000;
+                }
+                span:nth-child(3){
+                    margin-top: 0.03rem;
+                    color: #777;
+                }
+            }
+            .home-field{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 0.5rem;
+                height: 100%;
+                img{
+                    width: 0.2rem;
+                    height:0.2rem;
+                    margin-top: 0.05rem;
+                }
+                span:nth-child(2){
+                    margin-top: 0.05rem;
+                    color: #000;
+                }
+                span:nth-child(3){
+                    margin-top: 0.03rem;
+                    color: #777;
+                }
+            }
+            .score{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 0.65rem;
+                height: 100%;
+                p:nth-child(1){
+                    margin-top: 0.08rem;
+                }
+                p:nth-child(2){
+                    margin-top: 0.05rem;
+                }
+                p:nth-child(3){
+                    margin-top: 0.05rem;
+                    color: red;
+                }
+            }
+        }
+    }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}

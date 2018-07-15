@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const extractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
 
 const webpackConfig = {
     entry: {
@@ -8,6 +9,7 @@ const webpackConfig = {
     }
     ,
     output: {
+        publicPath:'http://localhost:3000/',
         path: __dirname + '/dist/',
         filename: '[name].js'
     }
@@ -16,16 +18,14 @@ const webpackConfig = {
         rules: [
             {
                 test: /\.(scss|css)$/,
-                loader: extractTextPlugin.extract({
-                    // 这里得顺序是从右到左的
-                    use: [
-                        {loader: "style-loader"}, // 将 JS 字符串生成为 style 节点
+                // 这里得顺序是从右到左的
+                use: [
+                    {loader: "style-loader"}, // 将 JS 字符串生成为 style 节点,达到css热更新功能
+                        
+                    {loader: "css-loader"}, // 将 CSS 转化成 CommonJS 模块
                             
-                        {loader: "css-loader"}, // 将 CSS 转化成 CommonJS 模块
-                             
-                        {loader: "sass-loader"}, // 将 Sass 编译成 CSS
-                    ]
-                })
+                    {loader: "sass-loader"}, // 将 Sass 编译成 CSS
+                ]
             }
             ,
             {
@@ -33,8 +33,8 @@ const webpackConfig = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: '[hash:8].[name].[ext]',
-                    outputPath: '/static/imgs'
+                    name: '[name].[ext]',
+                    outputPath: 'static/img'
                 }
             }
             ,
@@ -43,6 +43,13 @@ const webpackConfig = {
                 loader: 'babel-loader'
             }
         ]
+    }
+    ,
+    resolve:{
+        alias: {
+            toSrc: path.resolve(__dirname,'app/src/'),
+            toStatic: path.resolve(__dirname,'static/')
+        }
     }
     ,
     plugins: [

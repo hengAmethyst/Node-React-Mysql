@@ -1,24 +1,9 @@
 import React from 'react'
-import {Link,Route,BrowserRouter as Router} from 'react-router-dom'
+import {Link,HashRouter as Router,Switch,Route,Redirect} from 'react-router-dom'
+import Home from './home/home'
+import Detail from './detail/detail'
 
 
-class Home extends React.Component{
-  render(){
-    return(<h2> home </h2>)
-  }
-}
-
-class List extends React.Component{
-  render(){
-    return(<h2> list </h2>)
-  }
-}
-
-class Detail extends React.Component{
-  render(){
-    return(<h2> detail </h2>)
-  }
-}
 
 
 
@@ -31,16 +16,13 @@ class RouteMap extends React.Component {
   }
   render(){ 
     return(
-	    <Router forceRefresh={true}>
+	    <Router>
 		    <div>
-          <ul>
-            <li><Link to="/home">home</Link></li>
-            <li><Link to="/list">list</Link></li>
-            <li><Link to="/detail">detail</Link></li>
-          </ul>
-          <Route exact path="/home"  Component={Home}/>
-          <Route exact path="/list"   Component={List}/>
-          <Route  path="/detail" Component={Detail}/>
+          <Switch>
+            <Route  path="/home"  component={Home}/>
+            <Route  path="/detail" component={Detail}/>
+            <Redirect from="/" to="/home" component={Home}/>
+          </Switch>
         </div>
 		 </Router>
     ) 

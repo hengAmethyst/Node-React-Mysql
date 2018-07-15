@@ -4,10 +4,11 @@ var express = require('express')
 var app = express()
 var opn = require('opn')
 var path = require('path')
+var fs = require('fs')
 
 var port = 3000
 var page = '/index.html'
-var uri = 'http://localhost:' + port + page
+var uri = 'http://localhost:' + port
 
 /**
  * 给入口文件添加浏览器热刷新的关联
@@ -15,6 +16,7 @@ var uri = 'http://localhost:' + port + page
 for(let name in webpackConfig.entry){
     webpackConfig.entry[name] = ['webpack-hot-middleware/client?reload=true'].concat(webpackConfig.entry[name])
 }
+
 
 var compiler = webpack(webpackConfig)
 /**
@@ -24,9 +26,9 @@ var compiler = webpack(webpackConfig)
  * 并且把最新的文件上传到静态服务器
  */
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
+    publicPath: webpackConfig.output.publicPath,
     quiet: true
 })
-
 /**
  * 用来将webpack-dev-middleware编译更新后的文件通知浏览器
  * 并且告诉浏览器如何更新文件,从而实现 Webpack hot reloading
@@ -36,8 +38,6 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
     log: () => {}
 })
-
-
 /**
  * 挂载静态资源
  */
@@ -50,12 +50,20 @@ devMiddleware.waitUntilValid(function () {
     console.log('> Listening at ' + uri + '\n')
 })
 
+
+
 /**
  * use热加载工具
  */
 app.use(devMiddleware)
 app.use(hotMiddleware)
 
+var options = {root: __dirname + '/app/src/'}
+
+// app.get('*', function (request, response){
+//     response.sendFile('index.html',options)
+// })
+  
 /**
  * 启动服务,并打开默认浏览器跳到指定url
  */
