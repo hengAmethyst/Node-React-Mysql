@@ -1,6 +1,7 @@
 { 
     "presets": ["react","env"],
     "plugins": [
-        ["import", { "libraryName": "antd-mobile", "style": "css" }]
+        ["import", { "libraryName": "antd-mobile", "style": "css" }],
+        "transform-decorators-legacy"
     ]
 }

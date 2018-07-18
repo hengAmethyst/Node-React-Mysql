@@ -1,0 +1,38 @@
+.live{
+    width: 100%;
+    .video-box{
+        width: 100%;
+        height: 1.8rem;
+        background: yellowgreen;
+    }
+    .table{
+        width: 100%;
+        height: 0.4rem;
+        background: #fff;
+        ul{
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            width: 70%;
+            height: 100%;
+            li{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 0.6rem;
+                span:nth-child(1){
+                    margin-top: 0.1rem;
+                    font-size: 0.15rem;
+                    color: #444;
+                }
+                span:nth-child(2){
+                    display: flex;
+                    width: 0.15rem;
+                    height: 0.02rem;
+                    margin-top: 0.05rem;
+                    background: #fff;
+                }
+            }
+        }
+    }
+}

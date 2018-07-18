@@ -1,6 +1,8 @@
 import React from 'react'
 import 'toSrc/css/components/common/header.scss'
+import {withRouter} from 'react-router-dom'
 
+@withRouter
 export default class Head extends React.Component{
     constructor(props){
         super(props)
@@ -53,12 +55,11 @@ export default class Head extends React.Component{
     }
     // 点击跳转game详情
     intoGame(param){
-        console.log('1')
-        let location = {
+        let data = {
             pathname: '/game',
-            state: {fromDashboard: true}
+            state: {data: param}
         }
-        location.href = '#game'
+        this.props.history.push(data)
     }
 
 
@@ -94,7 +95,7 @@ export default class Head extends React.Component{
                         </div>
                     </div>
                     {this.state.data.gameList.map((item,index) => (
-                        <div className="game-box" key={index} onClick={this.intoGame}>
+                        <div className="game-box" key={index} onClick={this.intoGame.bind(this,item)}>
                             <div className="visiting-field">
                                 <img src={item.visitingField.logoImg}/>
                                 <span>{item.visitingField.name}</span>
