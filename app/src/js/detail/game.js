@@ -13,7 +13,11 @@ export default class Game extends React.Component{
     }
 
     goVlive(){
-        this.props.history.push('/game/vlive')
+        let data = {
+            pathname: '/game/vlive',
+            state: {data: this.state.info}
+        }
+        this.props.history.push(data)
     }
 
     componentDidMount(){
