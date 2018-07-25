@@ -2,6 +2,7 @@ import React from 'react'
 import {Route,withRouter} from 'react-router-dom'
 import 'toSrc/css/detail/vLive.scss'
 import Record from 'toSrc/js/detail/record.js'
+import Discuss from 'toSrc/js/detail/discuss.js'
 
 @withRouter
 export default class Vlive extends React.Component{
@@ -33,7 +34,7 @@ export default class Vlive extends React.Component{
            this.setState({tab1: {color:'#f6070c',bg:'#f6070c'}});
            break;
            case 2: this.setState({tab2: {color:'#f6070c',bg:'#f6070c'}});
-           this.props.history.push('/game/vlive/hot');
+           this.props.history.push('/game/vlive/discuss');
            break;
            case 3: this.setState({tab3: {color:'#f6070c',bg:'#f6070c'}});
            this.props.history.push('/game/vlive/guess');
@@ -67,9 +68,7 @@ export default class Vlive extends React.Component{
                     </ul>
                 </div>
                 <Route path='/game/vlive/record' component = {Record}/>
-                <Route path="/game/vlive/hot" component = {() => (
-                    <div>hot</div>
-                )}/>
+                <Route path="/game/vlive/discuss" component = {Discuss}/>
                 <Route path="/game/vlive/guess" component = {() => (
                     <div>guess</div>
                 )}/>
