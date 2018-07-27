@@ -2,10 +2,10 @@ import React from 'react'
 import 'toSrc/css/detail/discuss.scss'
 
 const HotItem = (data) => (
-    <div className="hot">
+    <div className="hot" key={Math.random()}>
         <div className="user-info">
             <img src={data.headImgUrl}/>
-            <div class="name-box">
+            <div className="name-box">
                 <span>{data.nickName}</span>
                 <span>
                     <i>{data.date}</i>
@@ -19,7 +19,7 @@ const HotItem = (data) => (
 
         <div className="other">
             {data.backList.map((item,index) => (
-                <div className="item" key={index}>
+                <div className="item" key={Math.random()}>
                     <span>{item.nickName}:</span>
                     <span>{item.content}</span>
                 </div>
@@ -74,7 +74,7 @@ export default class Discuss extends React.Component{
                         <span>精彩热评</span>
                     </div>
                     {this.state.hotList.map((item,index) => (
-                        HotItem(item)
+                        HotItem(item,'@')
                     ))}
                 </div>
                 <div className="item2">
@@ -83,7 +83,7 @@ export default class Discuss extends React.Component{
                         <span>12</span>
                     </div>
                     {this.state.hotList.map((item,index) => (
-                        HotItem(item)
+                        HotItem(item,'#')
                     ))}
                 </div>
                 <div className="item3">

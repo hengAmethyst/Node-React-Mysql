@@ -3,6 +3,7 @@ import {Route,withRouter} from 'react-router-dom'
 import 'toSrc/css/detail/vLive.scss'
 import Record from 'toSrc/js/detail/record.js'
 import Discuss from 'toSrc/js/detail/discuss.js'
+import Guess from 'toSrc/js/detail/guess.js'
 
 @withRouter
 export default class Vlive extends React.Component{
@@ -49,7 +50,9 @@ export default class Vlive extends React.Component{
         return(
             <div className="live">
                 <div className="video-box">
-
+                    <video src="static/img/video.mp4" controls="controls" width="85%">
+                        您的浏览器不支持 video 标签。
+                    </video>
                 </div>
                 <div className="table">
                     <ul>
@@ -69,10 +72,7 @@ export default class Vlive extends React.Component{
                 </div>
                 <Route path='/game/vlive/record' component = {Record}/>
                 <Route path="/game/vlive/discuss" component = {Discuss}/>
-                <Route path="/game/vlive/guess" component = {() => (
-                    <div>guess</div>
-                )}/>
-
+                <Route path="/game/vlive/guess" component = {Guess}/>
             </div>
         )
     }

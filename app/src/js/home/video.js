@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link,NavLink,Route} from 'react-router-dom'
+import {Link,NavLink,Route,withRouter} from 'react-router-dom'
 import VideoTemplate from './video-template.js'
 
+@withRouter
 export default class Video extends React.Component{
     constructor(props){
         super(props)
@@ -17,6 +18,7 @@ export default class Video extends React.Component{
             ]
         }
     }
+
     render(){
         return(
             <div className="video-wrap">

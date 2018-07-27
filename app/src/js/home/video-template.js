@@ -1,6 +1,9 @@
 import React from 'react'
 import 'toSrc/css/home/video.scss'
+import {withRouter} from 'react-router-dom'
 
+
+@withRouter
 export default class VideoTemplate extends React.Component{
     constructor(props){
         super(props)
@@ -8,9 +11,13 @@ export default class VideoTemplate extends React.Component{
             
         }
     }
+
+    intoVideo(){
+        this.props.history.push('/video')
+    }
     render(){
         return(
-            <div className="video-box">
+            <div className="video-box"  onClick={this.intoVideo.bind(this)}>
                 <div className="video-img">
                     <img src={this.props.info.imgUrl}/>
                 </div>

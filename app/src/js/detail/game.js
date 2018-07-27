@@ -14,7 +14,15 @@ export default class Game extends React.Component{
 
     goVlive(){
         let data = {
-            pathname: '/game/vlive',
+            pathname: '/game/vlive/record',
+            state: {data: this.state.info}
+        }
+        this.props.history.push(data)
+    }
+
+    goWlive(){
+        let data = {
+            pathname: '/game/wlive',
             state: {data: this.state.info}
         }
         this.props.history.push(data)
@@ -47,12 +55,8 @@ export default class Game extends React.Component{
                     <span>视频直播</span> <i className="icon iconfont icon-previewright"></i><i className="icon iconfont icon-previewright"></i>
                 </div>
 
-                <div className="w-live">
+                <div className="w-live" onClick={this.goWlive.bind(this)}>
                     <span>文字直播</span> <i className="icon iconfont icon-previewright"></i><i className="icon iconfont icon-previewright"></i>
-                </div>
-
-                <div className="o-live">
-                    <span>其他比赛</span> <i className="icon iconfont icon-previewright"></i><i className="icon iconfont icon-previewright"></i>
                 </div>
             </div>
         )

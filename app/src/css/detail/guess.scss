@@ -1,0 +1,14 @@
+.guess{
+    width: 100%;
+    .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 0.6rem;
+        span{
+            font-size: 0.24rem;
+            color: #444;
+        }
+    }
+}
