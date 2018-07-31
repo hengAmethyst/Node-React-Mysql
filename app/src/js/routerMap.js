@@ -7,11 +7,6 @@ import Wlive from './detail/wLive'
 import Video from './detail/video'
 import News from './detail/news'
 
-
-
-
-
-
 class RouteMap extends React.Component {
 	constructor(props){
     super(props)

@@ -1,12 +1,14 @@
 import React from 'react'
 import {Link,Route} from 'react-router-dom'
+import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux';
+import action from '../../redux/action'
 
 import Head from '../components/common/header'
 import Banner from './carousel'
 import Nav from './nav'
 import Video from './video'
 import News from './news'
-
 
 
 class Home extends React.Component{
@@ -26,4 +28,24 @@ class Home extends React.Component{
     }
 }
 
-export default Home
+const mapStateToProps = (state) => ({
+    name: state,
+})
+  
+const mapDispatchToProps = dispatch =>{
+    return {
+        changeName: () => {
+            dispatch({
+                type: action.nowGameId.type,
+                playLoad: '123'
+            })
+        }
+    }
+}
+    
+
+  
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home)
